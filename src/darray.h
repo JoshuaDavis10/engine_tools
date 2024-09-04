@@ -7,11 +7,11 @@ enum {
 	DARRAY_FIELD_LENGTH
 };
 
-void* _darray_create(unsigned int capacity, unsigned int stride);
+void* _darray_create(unsigned long long capacity, unsigned long long stride);
 void  _darray_destroy(void* darray);
 
-unsigned int _darray_get_field(void* darray, unsigned int field);
-void _darray_set_field(void* darray, unsigned int field, unsigned int set_value);
+unsigned long long _darray_get_field(void* darray, unsigned long long field);
+void _darray_set_field(void* darray, unsigned long long field, unsigned long long set_value);
 
 void* _darray_resize(void* darray);
 
@@ -22,8 +22,8 @@ void  _darray_pop(void* darray, void* dest);
 
 //pop_at DOES need to return a pointer to the darray b/c we could pop off the start and then we'd have to return 
 //the new start location? or smn...idk just implement the darn functions and then look back at this comment TODO
-void* _darray_pop_at(void* darray, unsigned int index, void* dest);
-void* _darray_insert_at(void* darray, unsigned int index, void* value_ptr);
+void* _darray_pop_at(void* darray, unsigned long long index, void* dest);
+void* _darray_insert_at(void* darray, unsigned long long index, void* value_ptr);
 
 #define DARRAY_DEFAULT_CAPACITY 1
 #define DARRAY_RESIZE_FACTOR 2 
