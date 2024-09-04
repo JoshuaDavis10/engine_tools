@@ -2,19 +2,24 @@
 
 #include "defines.h"
 #include "logger.h"
+#include "darray.h"
+
+#include <stdio.h>
 
 int main() {
 
-	InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "event handler demo");
-	SetTargetFPS(144);
+	void* darray = darray_create(int);
+	printf("created darray\n");
 
-	while(!WindowShouldClose()) {
-		BeginDrawing();
+	darray_push(darray, 12);
+	darray_push(darray, 14);
 
-			ClearBackground(BLACK);
-
-		EndDrawing();
-	}
+	int temp = 3;
+	int* data = &temp;
+	darray_pop(darray, data);
+	printf("%d popped.\n", *(data));
+	darray_pop(darray, data);
+	printf("%d popped.\n", *(data));
 
 	return 0;
 }
