@@ -8,18 +8,23 @@
 
 int main() {
 
-	void* darray = darray_create(int);
+	void* darray = (void*)darray_create(int);
 	printf("created darray\n");
-
-	darray_push(darray, 12);
-	darray_push(darray, 14);
-
 	int temp = 3;
-	int* data = &temp;
-	darray_pop(darray, data);
-	printf("%d popped.\n", *(data));
-	darray_pop(darray, data);
-	printf("%d popped.\n", *(data));
+
+	darray_push(darray, 1);
+	darray_push(darray, 2);
+	darray_push(darray, 3);
+	darray_push(darray, 4);
+	darray_pop(darray, &temp);
+	printf("%d popped.\n", temp);
+	darray_pop(darray, &temp);
+	printf("%d popped.\n", temp);
+	darray_pop(darray, &temp);
+	printf("%d popped.\n", temp);
+	darray_pop(darray, &temp);
+	printf("%d popped.\n", temp);
+
 
 	return 0;
 }
