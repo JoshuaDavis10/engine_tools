@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -O1 -Wall -std=c99 -Wno-missing-braces
-LIBS = -lm -lraylib -lopengl32 -lgdi32 -lwinmm
+LIBS = -lm -lwinmm
 
 SRC := src
 OBJ := obj
@@ -16,7 +16,7 @@ $(BIN): $(OBJECTS)
 
 $(OBJ)/%.o: $(SRC)/%.c | $(OBJ)
 	@echo compiling $<
-	@$(CC) $(CFLAGS) -I$(SRC) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(SRC) -c $< -g -o $@
 
 $(OBJ):
 	@mkdir $(OBJ)

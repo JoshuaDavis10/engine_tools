@@ -24,6 +24,7 @@ typedef struct event_system_state {
     event_code_entry registered[MAX_MESSAGE_CODES];
 } event_system_state;
 
+<<<<<<< HEAD
 //static event system state global variable (also a boolean is_initialized that will be checked whenever the initialize event system func is called so that we don't initialize it more than once)
 static event_system_state* state_ptr = 0;
 
@@ -117,3 +118,11 @@ unsigned char fire_event(int code, void* sender, event_context context) {
     return 0;
 
 }
+=======
+//TODO: function implementatons
+//	- initialize
+//	- shutdown
+//	- register
+//	- unregister
+//	- fire
+>>>>>>> fb6183e237363c866a64db43d5fab4c0f2f789dc
