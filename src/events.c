@@ -117,10 +117,3 @@ unsigned char fire_event(int code, void* sender, event_context context) {
     return 0;
 
 }
-
-//TODO: function implementatons
-//	- initialize
-//	- shutdown
-//	- register
-//	- unregister
-//	- fire
