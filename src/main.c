@@ -3,23 +3,26 @@
 #include "defines.h"
 #include "logger.h"
 #include "darray.h"
+#include "events.h"
 
 #include <stdio.h>
+#include <string.h>
+
+
+unsigned char cb(int code, void* sender, void* listener, event_context context) {
+    printf("Callback function.\n");
+    return 1;
+}
 
 int main() {
+    
+    initialize_events();
 
-	void* darray = darray_create(int);
-	printf("created darray\n");
+    register_event(KEY_PRESS, 0, cb);
 
-	darray_push(darray, 12);
-	darray_push(darray, 14);
-
-	int temp = 3;
-	int* data = &temp;
-	darray_pop(darray, data);
-	printf("%d popped.\n", *(data));
-	darray_pop(darray, data);
-	printf("%d popped.\n", *(data));
+    event_context c;
+    memset(&c, 0, sizeof(event_context));
+    fire_event(KEY_PRESS, 0, c);
 
 	return 0;
 }
