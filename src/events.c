@@ -3,6 +3,7 @@
 #include "logger.h"
 
 #include <stdlib.h>
+#include <string.h>
 
 //callback is a function with parameters specified in events.h
 typedef struct registered_event {
@@ -34,6 +35,7 @@ unsigned char initialize_events() {
     }
 
     state_ptr = malloc(sizeof(event_system_state));
+    memset(state_ptr, 0, sizeof(event_system_state));
     return 1;
 }
 
